@@ -1,6 +1,7 @@
-import React from 'react'
+import React from 'react';
 
-const WeatherCard = () => {
+
+const WeatherCard = ({ city, temperature }) => {
     return (
         <div>
             <h3>Location</h3>

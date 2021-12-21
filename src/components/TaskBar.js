@@ -1,11 +1,11 @@
 import React from 'react'
 import SearchBar from './SearchBar';
 
-const TaskBar = () => {
+const TaskBar = ( { searchLocation } ) => {
     return (
         <div className='task-bar'>
             <h1>Weather App</h1>
-            <SearchBar />
+            <SearchBar searchLocation={searchLocation}/>
 
         </div>
     )
