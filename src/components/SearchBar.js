@@ -11,6 +11,7 @@ const SearchBar = ( { searchLocation } ) => {
         console.log(location);
         if(location === ''){
             alert('Please enter in a valid location');
+            return;
         }
 
         searchLocation(location);
