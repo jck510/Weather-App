@@ -12,7 +12,7 @@ function App() {
   const today = new Date();
   
 
-  const [query,setQuery] = useState('');
+  //const [query,setQuery] = useState('');
   const [weather, setWeather] = useState({});
   const [hasCityBeenSearched, setHasCityBeenSearched] = useState(false);
   const [currentLocation, setCurrentLocation] = useState({});
@@ -23,11 +23,12 @@ function App() {
 
   const [city, setCity] = useState('');
 
-  const getWeather = (cityLimit) => {
-    setCity('Oakland');
-    axios.get(`${process.env.REACT_APP_API_URL}?q=${cityLimit}&appid=${process.env.REACT_APP_API_KEY}&units=imperial`).then(
+  const getWeather = (query) => {
+    setHasCityBeenSearched(false);
+    setHasCityDetailsLoaded(false);
+    axios.get(`${process.env.REACT_APP_API_URL}?${query}&appid=${process.env.REACT_APP_API_KEY}&units=imperial`).then(
       (response) => {
-        console.log(response);
+        //console.log(response);
         setWeather(response.data);
         setHasCityBeenSearched(true);
 
@@ -35,14 +36,20 @@ function App() {
 
         axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${response.data.coord.lat}&lon=${response.data.coord.lon}&exclude=hourly,minutely,current&appid=${process.env.REACT_APP_API_KEY}&units=imperial`).then(
           (response) => {
-            console.log('daily ', response);
+            //console.log('daily ', response);
             setSevenDayWeather(response.data);
             setHasSevenDay(true);
             
           }
-        )
+        ).catch((error) => {
+          console.clear();
+        })
 
-    })
+    }).catch((error) => { // this is for the event in which there was an invalid api request
+      console.clear();
+      alert('Unable to gather data from this location');
+    });
+    
 
     
   }
@@ -51,13 +58,15 @@ function App() {
   const getLocationDetails = (lat, lon) => {
     axios.get(`${process.env.REACT_APP_LOC_API_URL}?access_key=${process.env.REACT_APP_LOC_API_KEY}&query=${lat},${lon}&limit=1`).then(
       (response) => {
-        console.log(response);
+        //console.log(response);
         setCurrentLocation(response.data.data[0]);
         setHasCityDetailsLoaded(true);
         
       }
 
-    )
+    ).catch((error) => {
+      console.clear();
+    })
   }
 
   // const search = evt => {

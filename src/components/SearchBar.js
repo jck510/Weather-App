@@ -5,6 +5,7 @@ import axios from 'axios';
 const SearchBar = ( { searchLocation } ) => {
 
     const [location, setLocation] = useState('');
+    
 
     const onSubmit = (e) => {
         e.preventDefault();
@@ -13,8 +14,15 @@ const SearchBar = ( { searchLocation } ) => {
             alert('Please enter in a valid location');
             return;
         }
+        
+        if(location.length === 5 && Number.isInteger(parseInt(location))){
+            searchLocation(`zip=${location}`);
+        }
+        else{
+            searchLocation(`q=${location}`);
+        }
 
-        searchLocation(location);
+        
 
     }
 
@@ -22,7 +30,7 @@ const SearchBar = ( { searchLocation } ) => {
         // <form className='location-search' onSubmit={(e) => onSubmit(e)}>
         <div className='location-search'>
             <FaSearchLocation cursor='pointer' onClick={(e) => onSubmit(e)}/>
-            <input type='text' placeholder='Please enter in a city' name='location' value={location} onChange={(e) => setLocation(e.target.value)}/>
+            <input type='text' placeholder='Please enter in a city or United States Zip Code' name='location' value={location} onChange={(e) => setLocation(e.target.value)}/>
             
 
         </div>
