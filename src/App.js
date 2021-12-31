@@ -9,7 +9,8 @@ import WeatherCard from './components/WeatherCard';
 function App() {
 
 
-  const today = new Date();
+  const today = new Date(1640980800 * 1000);
+  console.log('today ', today);
   
 
   //const [query,setQuery] = useState('');
@@ -26,6 +27,7 @@ function App() {
   const getWeather = (query) => {
     setHasCityBeenSearched(false);
     setHasCityDetailsLoaded(false);
+    setHasSevenDay(false);
     axios.get(`${process.env.REACT_APP_API_URL}?${query}&appid=${process.env.REACT_APP_API_KEY}&units=imperial`).then(
       (response) => {
         //console.log(response);
@@ -36,13 +38,14 @@ function App() {
 
         axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${response.data.coord.lat}&lon=${response.data.coord.lon}&exclude=hourly,minutely,current&appid=${process.env.REACT_APP_API_KEY}&units=imperial`).then(
           (response) => {
-            //console.log('daily ', response);
+            console.log('daily ', response);
             setSevenDayWeather(response.data);
             setHasSevenDay(true);
             
           }
         ).catch((error) => {
           console.clear();
+          console.log(error);
         })
 
     }).catch((error) => { // this is for the event in which there was an invalid api request
@@ -94,16 +97,24 @@ function App() {
       // </>
       <CurrentWeatherCard weather={weather} currentLocation={currentLocation} sevenDayWeather={sevenDayWeather}/>
       }
-      {hasSevenDay &&
+      {(hasSevenDay && hasCityBeenSearched && hasCityDetailsLoaded) &&
       <>
-      <WeatherCard todaysDate={today}/>
-      <WeatherCard />
-      <WeatherCard />
-      <WeatherCard />
-      <WeatherCard />
-      <WeatherCard />
-      <WeatherCard />
+        <div className='eight-day-weather-panel'>
+          <WeatherCard todaysWeather={sevenDayWeather.daily[0]}/>
+          <WeatherCard todaysWeather={sevenDayWeather.daily[1]}/>
+          <WeatherCard todaysWeather={sevenDayWeather.daily[2]}/>
+          <WeatherCard todaysWeather={sevenDayWeather.daily[3]}/>
+          
+        </div>
+        <div className='eight-day-weather-panel'>
+          <WeatherCard todaysWeather={sevenDayWeather.daily[4]}/>
+          <WeatherCard todaysWeather={sevenDayWeather.daily[5]}/>
+          <WeatherCard todaysWeather={sevenDayWeather.daily[6]}/>
+          <WeatherCard todaysWeather={sevenDayWeather.daily[7]}/>
+          
+        </div>
       </>
+      
       
       }
       

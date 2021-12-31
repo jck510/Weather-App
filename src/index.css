@@ -24,3 +24,26 @@ code {
   text-shadow: 2px 2px rgb(41, 41, 41);
 }
 
+.eight-day-weather-panel {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+}
+
+.weather-card {
+  background-color: lightblue;
+  box-shadow: 10px 5px 5px grey;
+  padding: 50px;
+  text-align: center;
+}
+
+.main-weather-card {
+  background-color: lightblue;
+  box-shadow: 10px 5px 5px grey;
+  padding: 50px;
+  text-align: center;
+  margin-left: 100px;
+  margin-right: 100px;
+  margin-top: 10px;
+  width: 350px;
+}

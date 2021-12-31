@@ -7,7 +7,7 @@ const CurrentWeatherCard = ({ weather, currentLocation}) => {
 
 
     return (
-        <div>
+        <div className='main-weather-card'>
             <h1>{weather.name}, {currentLocation.region_code !== null && currentLocation.region_code + ', '}{currentLocation.country_code}</h1>
             <h4>Current Weather</h4>
             {/* {weather.weather[0].main === 'Clouds' &&
