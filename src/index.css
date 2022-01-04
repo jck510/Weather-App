@@ -26,7 +26,7 @@ code {
 
 .eight-day-weather-panel {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   margin: 20px;
 }
 
@@ -35,15 +35,24 @@ code {
   box-shadow: 10px 5px 5px grey;
   padding: 50px;
   text-align: center;
+  margin-right: 15px;
+  border-radius: 10%;
+
 }
 
 .main-weather-card {
   background-color: lightblue;
+  align-items:center;
+  justify-content: center;
   box-shadow: 10px 5px 5px grey;
   padding: 50px;
   text-align: center;
-  margin-left: 100px;
-  margin-right: 100px;
   margin-top: 10px;
   width: 350px;
+  border-radius: 10%;
+}
+
+.current-weather-info-div {
+  display: flex;
+  justify-content: center;
 }

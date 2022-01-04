@@ -84,7 +84,9 @@ function App() {
   return (
     <div>
       <TaskBar searchLocation={getWeather}/>
-      {/* <button onClick={() => getWeather("Oakland")}>Get Weather Right Now</button> */}
+
+      <div className='current-weather-info-div'>
+        {/* <button onClick={() => getWeather("Oakland")}>Get Weather Right Now</button> */}
       {(hasCityBeenSearched && hasCityDetailsLoaded) &&
       // <>
       // <h1>{weather.name}, {currentLocation.region_code}, {weather.sys.country}</h1>
@@ -97,6 +99,7 @@ function App() {
       // </>
       <CurrentWeatherCard weather={weather} currentLocation={currentLocation} sevenDayWeather={sevenDayWeather}/>
       }
+      </div>
       {(hasSevenDay && hasCityBeenSearched && hasCityDetailsLoaded) &&
       <>
         <div className='eight-day-weather-panel'>
@@ -117,6 +120,7 @@ function App() {
       
       
       }
+      
       
     </div>
   );
