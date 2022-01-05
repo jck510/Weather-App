@@ -28,9 +28,9 @@ const SearchBar = ( { searchLocation } ) => {
 
     return (
         // <form className='location-search' onSubmit={(e) => onSubmit(e)}>
-        <div className='location-search'>
-            <FaSearchLocation cursor='pointer' onClick={(e) => onSubmit(e)}/>
-            <input type='text' placeholder='Please enter in a city or United States Zip Code' name='location' value={location} onChange={(e) => setLocation(e.target.value)}/>
+        <div className='location-search-div'>
+            <FaSearchLocation size='25px' className='submit-button' cursor='pointer' onClick={(e) => onSubmit(e)}/>
+            <input type='text' className='text-box' placeholder='Please enter in a city or United States Zip Code' size='37' name='location' value={location} onChange={(e) => setLocation(e.target.value)}/>
             
 
         </div>

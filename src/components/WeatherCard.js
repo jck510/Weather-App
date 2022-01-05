@@ -85,7 +85,7 @@ const WeatherCard = ({ todaysWeather, daysPastCurrent}) => {
             <h2>{dayString}</h2>
             <h3>{dateString} {currentDate.getDate()}, {currentDate.getFullYear()}</h3>
             
-            <img src={iconURL}/>
+            <img src={iconURL} alt=''/>
             <h5>{todaysWeather.weather[0].main}</h5>
             <h2>{Math.round(todaysWeather.temp.day)}°F</h2>
             <h5>High: {Math.round(todaysWeather.temp.max)}°F</h5>

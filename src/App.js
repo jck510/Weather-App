@@ -5,6 +5,7 @@ import TaskBar from './components/TaskBar';
 import axios from 'axios';
 import CurrentWeatherCard from './components/CurrentWeatherCard';
 import WeatherCard from './components/WeatherCard';
+import Loader from './components/Loader';
 
 function App() {
 
@@ -84,6 +85,10 @@ function App() {
   return (
     <div>
       <TaskBar searchLocation={getWeather}/>
+
+      {(hasCityBeenSearched && (!(hasSevenDay && hasCityDetailsLoaded))) &&
+      <Loader />
+      }
 
       <div className='current-weather-info-div'>
         {/* <button onClick={() => getWeather("Oakland")}>Get Weather Right Now</button> */}

@@ -35,7 +35,7 @@ const CurrentWeatherCard = ({ weather, currentLocation}) => {
             </>
             } */}
 
-            <img src={iconURL}/>
+            <img src={iconURL} alt=''/>
             <h5>{weather.weather[0].main}</h5>
 
 
