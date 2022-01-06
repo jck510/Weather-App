@@ -9,11 +9,6 @@ import Loader from './components/Loader';
 
 function App() {
 
-
-  const today = new Date(1640980800 * 1000);
-  console.log('today ', today);
-  
-
   //const [query,setQuery] = useState('');
   const [weather, setWeather] = useState({});
   const [hasCityBeenSearched, setHasCityBeenSearched] = useState(false);
@@ -39,14 +34,14 @@ function App() {
 
         axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${response.data.coord.lat}&lon=${response.data.coord.lon}&exclude=hourly,minutely,current&appid=${process.env.REACT_APP_API_KEY}&units=imperial`).then(
           (response) => {
-            console.log('daily ', response);
+            //console.log('daily ', response);
             setSevenDayWeather(response.data);
             setHasSevenDay(true);
             
           }
         ).catch((error) => {
           console.clear();
-          console.log(error);
+          // console.log(error);
         })
 
     }).catch((error) => { // this is for the event in which there was an invalid api request

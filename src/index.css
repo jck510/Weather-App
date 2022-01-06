@@ -1,12 +1,16 @@
 * {
   margin: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 :root {
   --taskbar-color: #1B262C;
+  --misc-color: #0F4C75;
+  --loading-color: #3282B8;
   --weathercard-color: #BBE1FA;
   --background-color: #ffffff;
-  --loading-color: #3282B8;
+  
+  
 
 }
 
@@ -47,7 +51,7 @@ code {
 }
 
 .weather-card {
-  background-color: var(--weathercard-color);
+  background-image: linear-gradient(to bottom,  var(--loading-color), var(--weathercard-color));
   box-shadow: 10px 5px 5px grey;
   padding: 50px;
   text-align: center;
@@ -57,11 +61,10 @@ code {
   color: white;
   text-shadow: 2px 2px black;
   
-
 }
 
 .main-weather-card {
-  background-color: var(--weathercard-color);
+  background-image: linear-gradient(to bottom,  var(--loading-color), var(--weathercard-color));
   align-items:center;
   justify-content: center;
   box-shadow: 10px 5px 5px grey;
@@ -70,6 +73,8 @@ code {
   margin-top: 10px;
   width: 350px;
   border-radius: 10%;
+  color: white;
+  text-shadow: 2px 2px black;
 }
 
 .current-weather-info-div {
@@ -88,7 +93,7 @@ code {
 
 .text-box {
   height: 25px;
-  font-size: 19px;
+  font-size: 18px;
   
 }
 

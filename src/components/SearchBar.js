@@ -9,7 +9,7 @@ const SearchBar = ( { searchLocation } ) => {
 
     const onSubmit = (e) => {
         e.preventDefault();
-        console.log(location);
+        //console.log(location);
         if(location === ''){
             alert('Please enter in a valid location');
             return;

@@ -6,7 +6,6 @@ const WeatherCard = ({ todaysWeather, daysPastCurrent}) => {
     const iconURL = `${process.env.REACT_APP_WEATHER_ICON_URL}${todaysWeather.weather[0].icon}@2x.png`;
 
     const currentDate = new Date(parseInt(todaysWeather.dt) * 1000);
-    console.log('value check 2', todaysWeather);
 
     let dayString = '';
 
