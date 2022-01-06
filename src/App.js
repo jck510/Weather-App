@@ -42,10 +42,13 @@ function App() {
         ).catch((error) => {
           console.clear();
           // console.log(error);
+          setHasCityBeenSearched(false);
+          alert('Unable to gather data from this location');
         })
 
     }).catch((error) => { // this is for the event in which there was an invalid api request
       console.clear();
+      setHasCityBeenSearched(false);
       alert('Unable to gather data from this location');
     });
     
@@ -65,6 +68,8 @@ function App() {
 
     ).catch((error) => {
       console.clear();
+      setHasCityBeenSearched(false);
+      alert('Unable to gather data from this location');
     })
   }
 
