@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+
 import React, { useState } from 'react';
 import './App.css';
 import TaskBar from './components/TaskBar';
@@ -18,7 +18,6 @@ function App() {
   const [hasSevenDay, setHasSevenDay] = useState(false);
 
 
-  const [city, setCity] = useState('');
 
   const getWeather = (query) => {
     setHasCityBeenSearched(false);
@@ -58,10 +57,10 @@ function App() {
 
 
   const getLocationDetails = (lat, lon) => {
-    axios.get(`${process.env.REACT_APP_LOC_API_URL}?access_key=${process.env.REACT_APP_LOC_API_KEY}&query=${lat},${lon}&limit=1`).then(
+      axios.get(`${process.env.REACT_APP_LOC_API_URL}?latitude=${lat}&longitude=${lon}&localityLanguage=en`).then(
       (response) => {
         //console.log(response);
-        setCurrentLocation(response.data.data[0]);
+        setCurrentLocation(response.data);
         setHasCityDetailsLoaded(true);
         
       }

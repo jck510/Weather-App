@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaCloud, FaCloudRain, FaSun, FaSnowflake } from 'react-icons/fa';
+
 
 const CurrentWeatherCard = ({ weather, currentLocation}) => {
 
@@ -8,7 +8,8 @@ const CurrentWeatherCard = ({ weather, currentLocation}) => {
 
     return (
         <div className='main-weather-card'>
-            <h1>{weather.name}, {currentLocation.region_code !== null && currentLocation.region_code + ', '}{currentLocation.country_code}</h1>
+            <h1>{weather.name},</h1>
+            {currentLocation.principalSubdivision !== null && <h2>{currentLocation.principalSubdivision + ', '}{currentLocation.countryCode}</h2>}
             <h4>Current Weather</h4>
             {/* {weather.weather[0].main === 'Clouds' &&
             <>
