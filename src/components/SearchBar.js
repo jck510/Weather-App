@@ -6,6 +6,13 @@ const SearchBar = ( { searchLocation } ) => {
 
     const [location, setLocation] = useState('');
     
+    // function that handles the enter key pressed in the textbox to submit
+    const handleKeyDown = (event) => {
+        if(event.code === 'Enter'){
+            onSubmit(event);
+        }
+
+    }
 
     const onSubmit = (e) => {
         e.preventDefault();
@@ -30,7 +37,7 @@ const SearchBar = ( { searchLocation } ) => {
         // <form className='location-search' onSubmit={(e) => onSubmit(e)}>
         <div className='location-search-div'>
             <FaSearchLocation size='25px' className='submit-button' cursor='pointer' onClick={(e) => onSubmit(e)}/>
-            <input type='text' className='text-box' placeholder='Please enter in a city or United States Zip Code' size='37' name='location' value={location} onChange={(e) => setLocation(e.target.value)}/>
+            <input type='text' className='text-box' onKeyDown={(e) => handleKeyDown(e)} placeholder='Please enter in a city or United States Zip Code' size='37' name='location' value={location} onChange={(e) => setLocation(e.target.value)}/>
             
 
         </div>
