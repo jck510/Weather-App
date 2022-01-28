@@ -85,6 +85,14 @@ function App() {
     <div>
       <TaskBar searchLocation={getWeather}/>
 
+      {!hasCityBeenSearched &&
+      <div className='main-logo-div'>
+      <video autoplay='true' muted='true' width='800px' className='main-logo' playsInline>
+        <source src='/assets/images/weathercards.mp4' type='video/mp4' />
+      </video>
+      </div>
+      }
+
       {(hasCityBeenSearched && (!(hasSevenDay && hasCityDetailsLoaded))) &&
       <Loader />
       }

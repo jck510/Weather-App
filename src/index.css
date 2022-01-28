@@ -121,6 +121,17 @@ code {
 
 }
 
+.main-logo-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.main-logo {
+  margin-top: 100px;
+}
+
 /* Safari */
 @-webkit-keyframes spin {
   0% {-webkit-transform: rotate(0deg);}
@@ -193,6 +204,17 @@ code {
     
   }
 
+  .main-logo-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0px;
+  }
+
+  .main-logo {
+    margin-top: 100px;
+  }
+
 
 }
 
@@ -253,5 +275,19 @@ code {
     margin-bottom: 0px;
     
   }
+
+  .main-logo-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0px;
+    
+  }
+
+  .main-logo {
+    margin-top: 75px;
+  }
+
+
   
 }
